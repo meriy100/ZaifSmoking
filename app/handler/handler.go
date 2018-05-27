@@ -2,7 +2,9 @@ package handler
 
 import (
     "net/http"
-    "github.com/labstack/echo"
+    "strconv"
+	"encoding/json"
+	"github.com/labstack/echo"
 	"github.com/meriy100/zaif/app/zaif"
 )
 
@@ -17,3 +19,25 @@ func GetInfo() echo.HandlerFunc {
         return c.String(http.StatusOK, zaif.GetInfo())
     }
 }
+
+func GetDepth() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		pair := c.Param("pair")
+		depth := zaif.GetDepth(pair)
+		// last := strconv.FormatFloat(depth.Asks[0][0], 'f', 6, 64)
+		jsonBytes, _ := json.Marshal(depth)
+		return c.String(http.StatusOK, string(jsonBytes))
+	}
+}
+
+func CreateTrade() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		pair := c.Param("pair")
+		depth := zaif.GetDepth(pair)
+		lastBids := depth.Bids[0][0]
+		result := zaif.CreateTrade(pair, lastBids, 1)
+		jsonBytes, _ := json.Marshal(depth)
+		return c.String(http.StatusOK, string(jsonBytes))
+	}
+}
+

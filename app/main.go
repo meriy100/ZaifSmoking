@@ -17,7 +17,8 @@ func main() {
     // ルーティング
     e.GET("/hello", handler.MainPage())
     e.GET("/info", handler.GetInfo())
-
+    e.GET("/depth/:pair", handler.GetDepth())
+    e.POST("/trade/:pair", handler.CreateTrade())
     // サーバー起動
     e.Start(":1323")    //ポート番号指定してね
 }
