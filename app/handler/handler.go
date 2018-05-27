@@ -3,7 +3,7 @@ package handler
 import (
     "net/http"
     "github.com/labstack/echo"
-    "./zaif/"
+	"github.com/meriy100/zaif/app/zaif"
 )
 
 func MainPage() echo.HandlerFunc {
