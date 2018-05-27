@@ -2,7 +2,6 @@ package handler
 
 import (
     "net/http"
-    "strconv"
 	"encoding/json"
 	"github.com/labstack/echo"
 	"github.com/meriy100/zaif/app/zaif"
@@ -36,7 +35,7 @@ func CreateTrade() echo.HandlerFunc {
 		depth := zaif.GetDepth(pair)
 		lastBids := depth.Bids[0][0]
 		result := zaif.CreateTrade(pair, lastBids, 1)
-		jsonBytes, _ := json.Marshal(depth)
+		jsonBytes, _ := json.Marshal(result)
 		return c.String(http.StatusOK, string(jsonBytes))
 	}
 }

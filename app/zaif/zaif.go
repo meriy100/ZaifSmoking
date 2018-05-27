@@ -13,7 +13,6 @@ import (
     "strings"
 	"encoding/json"
 	"log"
-	"fmt"
 )
 
 var key = os.Getenv("ZAIF_KEY")
@@ -40,6 +39,12 @@ type Trade struct {
 			ZAIF float64 `json:"ZAIF"`
 		} `json:"funds`
 	} `json:return`
+
+}
+
+type ErrorResponse struct {
+	Success int64 `json:success`
+	Return string `json:return`
 }
 
 func GetInfo() string {
@@ -107,8 +112,9 @@ func CreateTrade(pair string, price float64, amount int64) Trade {
 	defer resp.Body.Close()
 	byteArray, _ := ioutil.ReadAll(resp.Body)
 	var trade Trade
-    if err := json.Unmarshal(byteArray, &trade); err != nil {
-        log.Fatal(err)
-    }
+	if err := json.Unmarshal(byteArray, &trade); err != nil {
+		log.Fatal(err)
+	}
+
 	return trade
 }
