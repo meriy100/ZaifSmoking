@@ -1,0 +1,34 @@
+# Packages
+/src/*/vendor
+vendor
+
+# Binary
+/src/*/bin
+/src/*/dist
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# yarn
+/src/*/node_modules
+
+# Ruby
+/.bundle
+/vendor/bundle
+
+# capistrano
+/log/capistrano.log
+
+
