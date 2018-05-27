@@ -1,8 +1,7 @@
-package main
+package zaif
 
 import (
     "os"
-    "fmt"
     "time"
     "strconv"
     "crypto/hmac"
@@ -17,7 +16,7 @@ import (
 var key = os.Getenv("ZAIF_KEY")
 var secret = os.Getenv("ZAIF_SECRET")
 
-func main() {
+func GetInfo() string {
     uri := "https://api.zaif.jp/tapi"
     values := url.Values{}
     values.Add("method", "get_info")
@@ -37,5 +36,5 @@ func main() {
     defer resp.Body.Close()
 
     byteArray, _ := ioutil.ReadAll(resp.Body)
-    fmt.Println(string(byteArray))
+    return string(byteArray)
 }

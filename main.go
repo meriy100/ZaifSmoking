@@ -16,6 +16,7 @@ func main() {
 
     // ルーティング
     e.GET("/hello", handler.MainPage())
+    e.GET("/info", handler.GetInfo())
 
     // サーバー起動
     e.Start(":1323")    //ポート番号指定してね
