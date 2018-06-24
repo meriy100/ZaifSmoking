@@ -3,7 +3,7 @@ package main
 import (
     "github.com/labstack/echo"
     "github.com/labstack/echo/middleware"
-    "github.com/meriy100/zaif/app/handler"
+    "github.com/meriy100/ZaifSmoking/app/handler"
 )
 
 func main() {

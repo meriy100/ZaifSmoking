@@ -4,7 +4,7 @@ import (
     "net/http"
 	"encoding/json"
 	"github.com/labstack/echo"
-	"github.com/meriy100/zaif/app/zaif"
+	"github.com/meriy100/ZaifSmoking/app/zaif"
 )
 
 func MainPage() echo.HandlerFunc {
