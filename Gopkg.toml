@@ -32,3 +32,6 @@
 [[constraint]]
   name = "github.com/labstack/echo"
   version = "3.3.5"
+
+[metadata.heroku]
+	root-package = "githu.com/meriy100/ZaifSmoking"
